@@ -15,6 +15,7 @@ import OrderCustomization from './components/OrderCustomization';
 import { CartProvider } from './context/CartContext';
 import SignUp from './components/SignUp';
 
+
 const App = () => {
   return (
     <Router>
@@ -46,6 +47,7 @@ const MainApp = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/feedback" element={<FeedbackForm />} />
+          
         </Routes>
       </div>
 

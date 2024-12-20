@@ -59,7 +59,6 @@ const OrderCustomization = () => {
         <div className="order-customization-container">
           <h1>Customize Your Order</h1>
 
-
           <div className="customization-options">
             <div className="customization-option">
               <label>Size:</label>
@@ -101,7 +100,10 @@ const OrderCustomization = () => {
             </div>
           </div>
 
-          <button className="finish-customization-btn">
+          <button
+            className="finish-customization-btn"
+            onClick={() => handleAddToCart(addToCart)}
+          >
             Finish Customizing
           </button>
 
@@ -115,3 +117,4 @@ const OrderCustomization = () => {
 };
 
 export default OrderCustomization;
+

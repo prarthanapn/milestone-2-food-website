@@ -16,9 +16,11 @@ const Navbar = () => {
         <li className="navbar-item"><Link to="/contact" className="navbar-link">Contact</Link></li>
         <li className="navbar-item"><Link to="/about" className="navbar-link">About Us</Link></li>
         <li className="navbar-item"><Link to="/feedback" className="navbar-link">Feedback</Link></li>
+       
+        
       </ul>
     </nav>
   );
 };
 
-export default Navbar;
+export default Navbar; 

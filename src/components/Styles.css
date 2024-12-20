@@ -664,7 +664,7 @@ body {
     border-radius: 8px;
   }
 
-.about-us-container {
+  .about-us-container {
     padding: 30px;
     background-color: #f4f4f9;
     font-family: 'Arial', sans-serif;
@@ -678,68 +678,70 @@ body {
     margin-bottom: 20px;
   }
   
-  .business-overview, .team-introduction, .unique-aspects {
-    margin-bottom: 30px;
-  }
-  
-  .business-overview h2, .team-introduction h2, .unique-aspects h2 {
+  .team-introduction h2 {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .business-overview p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-  }
-  
-  .team-member {
-    display: flex;
-    align-items: center;
     margin-bottom: 20px;
   }
   
-  .team-member-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
   }
   
-  .team-member-info {
-    max-width: 600px;
+  .team-member {
+    position: relative;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .team-member-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
   }
   
   .team-member-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    margin: 10px 0;
   }
   
   .team-member-info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #555;
+    font-size: 0.9rem;
+    color: #666;
   }
   
-  .unique-aspects ul {
-    list-style-type: none;
-    padding-left: 0;
+  .team-member:hover .team-member-img {
+    transform: scale(1.1);
   }
   
-  .unique-aspects li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #555;
+  .team-member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
   
-  .unique-aspects strong {
-    font-weight: bold;
-    color: #333;
+  .team-member:hover .team-member-overlay {
+    opacity: 1;
   }
+  
 
 .feedback-container {
     padding: 30px;
@@ -981,6 +983,7 @@ footer {
   
   .customization-options {
     margin-top: 30px;
+    
   }
   
   .customization-option {
@@ -1160,3 +1163,146 @@ footer {
     }
   }
   
+
+  /* Search Bar */
+.search-bar {
+  margin: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+
+
+
+
+
+
+
+/* Promotion */
+.promotion-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.promotion-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.promotion-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.promotion-button {
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.promotion-button:hover {
+  background-color: #ff4500;
+}
+
+/* Add this to your existing CSS */
+
+/* Filter Section */
+.filter-options {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-options label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Menu Item Hover Effects */
+.menu-item {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover .add-to-cart-btn {
+  opacity: 1;
+}
+
+.menu-item .add-to-cart-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-item .menu-item-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Pagination Style */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.light-mode {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #f4f4f9;
+}

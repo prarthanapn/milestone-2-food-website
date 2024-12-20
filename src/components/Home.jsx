@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 const Home = () => {
-  const menuItems = [
+  const menuItems = useMemo(() => [
     {
       title: "Classic Burger",
       description: "A delicious beef burger with all the fixings.",
@@ -33,11 +35,40 @@ const Home = () => {
       description: "Soft tortillas filled with seasoned meat and fresh toppings.",
       img: "https://th.bing.com/th/id/OIP.DE2dmtDwPuGF4vJfdaK_UwHaDt?w=311&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
-  ];
+  ], []);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredItems, setFilteredItems] = useState(menuItems);
+
+  
+  useEffect(() => {
+    setFilteredItems(
+      menuItems.filter(item => 
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [searchTerm, menuItems]);
+
+
+
 
   return (
     <div className="home-container">
-        <div className="navbar-spacer"></div>
+      <div className="navbar-spacer"></div>
+
+      
+      <div className="search-bar">
+        <input 
+          type="text" 
+          placeholder="Search for a dish..." 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} 
+        />
+      </div>
+
+      
+      
+
       <section className="welcome-section">
         <h1 className="welcome-message">Welcome to Our Delicious Menu!</h1>
         <p className="welcome-description">
@@ -49,7 +80,7 @@ const Home = () => {
         <h2 className="featured-heading">Featured Menu Items</h2>
         <h3> To order these items, Scroll Down  !!</h3>
         <div className="menu-items-container">
-          {menuItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <div className="menu-item-card" key={index}>
               <img src={item.img} alt={item.title} className="menu-item-img" />
               <h3 className="menu-item-title">{item.title}</h3>
@@ -65,7 +96,6 @@ const Home = () => {
           <p className="promotion-description">
             Get 20% off your order when you order the "Winter Wonder Burger" this season. Limited time only!
           </p>
-          {/* Use Link to navigate to /order */}
           <Link to="/order" className="promotion-button">Order Now</Link>
         </div>
       </section>
